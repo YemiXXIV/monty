@@ -36,6 +36,10 @@ void process_file(FILE *file, stack_t **stack)
 			{
 				pint(stack, line_number);
 			}
+			else if (strcmp(cmd, "pop") == 0)
+			{
+				pop(stack, line_number);
+			}
 		}
 
 		line_number++;
