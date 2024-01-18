@@ -32,6 +32,10 @@ void process_file(FILE *file, stack_t **stack)
 			{
 				pall(stack, line_number);
 			}
+			else if (strcmp(cmd, "pint") == 0)
+			{
+				pint(stack, line_number);
+			}
 		}
 
 		line_number++;
