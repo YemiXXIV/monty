@@ -40,6 +40,10 @@ void process_file(FILE *file, stack_t **stack)
 			{
 				pop(stack, line_number);
 			}
+			else if (strcmp(cmd, "swap") == 0)
+			{
+				swap(stack, line_number);
+			}
 		}
 
 		line_number++;
