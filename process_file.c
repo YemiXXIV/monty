@@ -30,7 +30,7 @@ void process_file(FILE *file, stack_t **stack)
 			}
 			else if (strcmp(cmd, "pall") == 0)
 			{
-				pall(stack);
+				pall(stack, line_number);
 			}
 			else if (strcmp(cmd, "pint") == 0)
 			{

@@ -31,9 +31,11 @@ void push(stack_t **stack, int value)
  * @line_number: Line number in the file
  */
 
-void pall(stack_t **stack)
+void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
+
+	(void)line_number;
 
 	while (temp)
 	{
