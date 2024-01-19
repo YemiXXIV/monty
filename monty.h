@@ -51,4 +51,5 @@ void process_swap(stack_t **stack, unsigned int line_number);
 void process_add(stack_t **stack, unsigned int line_number);
 void process_opcode(char *line, stack_t **stack, unsigned int line_number);
 void process_push(stack_t **stack, unsigned int line_number);
+void process_nop(stack_t **stack, unsigned int line_number);
 #endif

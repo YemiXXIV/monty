@@ -39,5 +39,9 @@ void process_opcode(char *line, stack_t **stack, unsigned int line_number)
 		{
 			process_add(stack, line_number);
 		}
+		else if (strcmp(cmd, "nop") == 0)
+		{
+			process_nop(stack, line_number);
+		}
 	}
 }

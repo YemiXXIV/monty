@@ -1,31 +1,6 @@
 #include "monty.h"
 
 /**
- * push - Pushes an element to the stack
- * @stack: Double pointer to the stack
- * @value: Value to be pushed
- */
-
-void push(stack_t **stack, int value)
-{
-	stack_t *new_node = malloc(sizeof(stack_t));
-
-	if (!new_node)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-
-	new_node->n = value;
-	new_node->prev = NULL;
-	new_node->next = *stack;
-
-	if (*stack)
-		(*stack)->prev = new_node;
-	*stack = new_node;
-}
-
-/**
  * process_pall - Prints all the values on the stack
  * @stack: Double pointer to the stack
  * @line_number: Line number in the file
@@ -88,7 +63,6 @@ void process_pop(stack_t **stack, unsigned int line_number)
 
 /**
  * process_push - Processes the "push" opcode
- * @line: The line containing the Monty opcode and value
  * @stack: Double pointer to the stack
  * @line_number: Line number in the Monty bytecode file
  */
@@ -106,6 +80,7 @@ void process_push(stack_t **stack, unsigned int line_number)
 
 	push(stack, atoi(value_str));
 }
+
 
 /**
  * free_stack - Frees a stack
