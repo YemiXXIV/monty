@@ -26,12 +26,12 @@ void push(stack_t **stack, int value)
 }
 
 /**
- * pall - Prints all the values on the stack
+ * process_pall - Prints all the values on the stack
  * @stack: Double pointer to the stack
  * @line_number: Line number in the file
  */
 
-void pall(stack_t **stack, unsigned int line_number)
+void process_pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
 
@@ -45,12 +45,12 @@ void pall(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pint - Print the value at the top of the stack
+ * process_pint - Print the value at the top of the stack
  * @stack: Double pointer to the stack
  * @line_number: Line number of the instruction
  */
 
-void pint(stack_t **stack, unsigned int line_number)
+void process_pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
@@ -62,12 +62,12 @@ void pint(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pop - Removes the top element of the stack
+ * process_pop - Removes the top element of the stack
  * @stack: Double pointer to the stack
  * @line_number: Line number of the instruction
  */
 
-void pop(stack_t **stack, unsigned int line_number)
+void process_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
@@ -86,6 +86,26 @@ void pop(stack_t **stack, unsigned int line_number)
 	free(temp);
 }
 
+/**
+ * process_push - Processes the "push" opcode
+ * @line: The line containing the Monty opcode and value
+ * @stack: Double pointer to the stack
+ * @line_number: Line number in the Monty bytecode file
+ */
+
+void process_push(stack_t **stack, unsigned int line_number)
+{
+	char *value_str = strtok(NULL, " \t\n");
+
+	if (value_str == NULL || !is_number(value_str))
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
+
+	push(stack, atoi(value_str));
+}
 
 /**
  * free_stack - Frees a stack

@@ -41,11 +41,14 @@ typedef struct instruction_s
 } instruction_t;
 
 void push(stack_t **stack, int value);
-void pall(stack_t **stack, unsigned int line_number);
+void process_pall(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
 int is_number(char *str);
 void process_file(FILE *file, stack_t **stack);
-void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
+void process_pint(stack_t **stack, unsigned int line_number);
+void process_pop(stack_t **stack, unsigned int line_number);
+void process_swap(stack_t **stack, unsigned int line_number);
+void process_add(stack_t **stack, unsigned int line_number);
+void process_opcode(char *line, stack_t **stack, unsigned int line_number);
+void process_push(stack_t **stack, unsigned int line_number);
 #endif

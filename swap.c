@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * swap - Swaps the top two elements of the stack
+ * process_swap - Swaps the top two elements of the stack
  * @stack: Double pointer to the stack
  * @line_number: Line number of the instruction
  */
 
-void swap(stack_t **stack, unsigned int line_number)
+void process_swap(stack_t **stack, unsigned int line_number)
 {
 	int temp;
 
